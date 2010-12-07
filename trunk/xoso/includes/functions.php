@@ -2,9 +2,7 @@
 
 /******************************************************************************/
 
-function displayAdminHeader($current_page_title = '') {
-	require_once("template/adminheader.tpl");
-}
+
 
 //Ham tra ve khoang thoi gian giua 2 ngay
 function datediff($interval, $datefrom, $dateto, $using_timestamps = false) { 
@@ -88,8 +86,7 @@ function getStr($str)
     foreach ($array as $i) {
         $arr[]= substr($i,strlen($i)-2);
     }    
-    return implode("-",$arr);
-    //return $arr;
+    return implode("-",$arr);    
 }
 //Ham tra ve mang chua 2 chu so cuoi cua ket qua xo so theo 1 ngay
 function getArray($str)
@@ -109,7 +106,7 @@ function getArrKQ($type,$from_date,$to_date) {
     //chi hien thi ket qua xo so mien bac
     $query = "SELECT * 
               FROM xoso   
-              WHERE type = '$type' AND '$from_date' <= ngay AND ngay <= '$to_date'" ;  
+              WHERE type = '$type' AND '$from_date' <= ngay AND ngay <= '$to_date' order by ngay desc" ;  
               
     echo "<br/> query=".$query;
     $db->query($query, SQL_ALL);
@@ -144,37 +141,42 @@ function subtractDaysFromday($date,$number_of_days)
     return date ( 'Y-m-j' , $newdate ); 
 }
 
-//Ham hien thi logo gan
+//Ham hien thi ket qua logo gan
 function displayKQLoToGan($vars) {
     //Lay gia tri tren form
-    
+    //Bien do gan    
     if (isset($vars['number']))
     {
         $BienDoGan = $vars['number'];    
     }else{
         $vars['number'] = 10;
+        $BienDoGan = 10;
     }
-    
-    $type = $vars['slcTinh'];
-    
+    //ma tinh
+    if (isset($vars['slcTinh'])){
+        $type = $vars['slcTinh'];
+    }else{
+        $type = "mb";
+    }
+    //Tu ngay
     if (isset($vars['bottom_day']))
     {
         $array_date = explode('/', $vars['bottom_day']);
         $from_date = $array_date[2] . '-' . $array_date[1] . '-' . $array_date[0];    
     }
     else {
-        $vars['bottom_day'] = "10/09/2010";
-        //$from_date = '2010-09-10';
+        $vars['bottom_day'] = "1/09/2010";
+        $from_date = '2010-09-01';
     }
-    
+    //Den ngay
     if (isset($vars['top_day']))
     {
         $array_date = explode('/', $vars['top_day']);
         $to_date = $array_date[2] . '-' . $array_date[1] . '-' . $array_date[0];    
     }
     else {
-        $vars['top_day'] = "10/09/2010";
-        //$to_date = '2010-09-10';
+        $vars['top_day'] = "30/09/2010";
+        $to_date = '2010-09-30';
     }    
     //echo "fromdate=".$from_date;    
     //echo "todate=".$to_date;
@@ -185,18 +187,20 @@ function displayKQLoToGan($vars) {
     $date_temp = subtractDaysFromday($to_date,$BienDoGan);
     //Lay ket qua tu to_date den $date_temp
     $arrKQ1 = getArrKQ($type,$from_date,$date_temp);
-    foreach ($arrKQ1 as $i){
-        $temp = $i['g0'].'-'.$i['g1'].'-'.$i['g2'].'-'.$i['g3'].'-'.$i['g4']
-        .'-'.$i['g5'].'-'.$i['g6'].'-'.$i['g7'].'-'.$i['g8'];
-        echo "<br/>Chuoi ket qua1=".getStr($temp);
-    }
+    //echo "<br/>Ket qua tu $from_date den $date_temp";
+    //foreach ($arrKQ1 as $i){
+//        $temp = $i['g0'].'-'.$i['g1'].'-'.$i['g2'].'-'.$i['g3'].'-'.$i['g4']
+//        .'-'.$i['g5'].'-'.$i['g6'].'-'.$i['g7'].'-'.$i['g8'];
+//        echo "<br/>Ngay " .$i['ngay']. ": ".getStr($temp);
+//    }
     //Lay ve ket qua ty $date_temp den to_date
+    //echo "<br/>Ket qua tu $date_temp den $to_date";
     $arrKQ2 = getArrKQ($type,$date_temp,$to_date);
-    foreach ($arrKQ2 as $i){
-        $temp = $i['g0'].'-'.$i['g1'].'-'.$i['g2'].'-'.$i['g3'].'-'.$i['g4']
-        .'-'.$i['g5'].'-'.$i['g6'].'-'.$i['g7'].'-'.$i['g8'];
-        echo "<br/>Chuoi ket qua 2=".getStr($temp);
-    }
+    //foreach ($arrKQ2 as $i){
+//        $temp = $i['g0'].'-'.$i['g1'].'-'.$i['g2'].'-'.$i['g3'].'-'.$i['g4']
+//        .'-'.$i['g5'].'-'.$i['g6'].'-'.$i['g7'].'-'.$i['g8'];
+//        echo "<br/>Ngay " .$i['ngay']. ": ".getStr($temp);
+//    }
      
     require_once('template/ThongKeLoToGan.tpl');
 }
@@ -251,7 +255,9 @@ function displayLoToGan($vars) {
     require_once('template/ThongKeLoToGan.tpl');
 }
 
-
+function displayAdminHeader($current_page_title = '') {
+	require_once("template/adminheader.tpl");
+}
 function displayXoso($vars) {
     $ngay = '2010-09-10';
     if (isset($vars['ngay'])) {
