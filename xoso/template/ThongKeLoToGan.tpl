@@ -133,9 +133,32 @@
         
         Các cặp số duôi chua ra theo biên độ 10 ngày trở lên: <br>
         <?php
-               foreach ($arrKQ1 as $i){
-                echo "testkq_sdfg=".$i;
-    }
+               echo "<br/>Ket qua tu <b> $from_date </b> den <b> $date_temp </b>";
+                foreach ($arrKQ1 as $i){
+                    $temp = $i['g0'].'-'.$i['g1'].'-'.$i['g2'].'-'.$i['g3'].'-'.$i['g4']
+                    .'-'.$i['g5'].'-'.$i['g6'].'-'.$i['g7'].'-'.$i['g8'];
+                    echo "<br/>Ngay <b>" .$i['ngay']. "</b>: ".getStr($temp);
+                }
+                //Lay ve ket qua ty $date_temp den to_date
+                echo "<br/>Ket qua tu <b> $date_temp </b> den <b> $to_date </b>";                
+                
+                foreach ($arrKQ2 as $i){
+                    $temp = $i['g0'].'-'.$i['g1'].'-'.$i['g2'].'-'.$i['g3'].'-'.$i['g4']
+                    .'-'.$i['g5'].'-'.$i['g6'].'-'.$i['g7'].'-'.$i['g8'];
+                    echo "<br/>Ngay <b>" .$i['ngay']. "</b>: ".getStr($temp);
+                    $arr1 = getArray($temp);
+                    $a = array();
+                    foreach ($arr1 as $i){
+                        if (!in_array($i,$a)){
+                            $a[] = $i;    
+                        }                        
+                    }
+                    
+                }
+                echo "Ket qua ko lap:";
+                foreach ($a as $i){
+                        echo $i."-";   
+                    }
                         
          ?>
         cặp số <b>18</b> ra ngày: <a href="javascript:openDetail();ajax.load('ajax','chi-tiet-ket-qua-xo-so.php?ngay=2010-11-20',%20'Chi%20ti%E1%BA%BFt%20k%E1%BA%BFt%20qu%E1%BA%A3');">20/11/2010</a> - độn 05/12/2010 vẫn chưa ra lại là: <b>15</b> ngày<br>cặp số <b>21</b> ra ngày: <a href="javascript:openDetail();ajax.load('ajax','chi-tiet-ket-qua-xo-so.php?ngay=2010-11-23',%20'Chi%20ti%E1%BA%BFt%20k%E1%BA%BFt%20qu%E1%BA%A3');">23/11/2010</a> - độn 05/12/2010 vẫn chưa ra lại là: <b>12</b> ngày<br>cặp số <b>29</b> ra ngày: <a href="javascript:openDetail();ajax.load('ajax','chi-tiet-ket-qua-xo-so.php?ngay=2010-11-23',%20'Chi%20ti%E1%BA%BFt%20k%E1%BA%BFt%20qu%E1%BA%A3');">23/11/2010</a> - độn 05/12/2010 vẫn chưa ra lại là: <b>12</b> ngày<br>cặp số <b>37</b> ra ngày: <a href="javascript:openDetail();ajax.load('ajax','chi-tiet-ket-qua-xo-so.php?ngay=2010-11-22',%20'Chi%20ti%E1%BA%BFt%20k%E1%BA%BFt%20qu%E1%BA%A3');">22/11/2010</a> - độn 05/12/2010 vẫn chưa ra lại là: <b>13</b> ngày<br>cặp số <b>54</b> ra ngày: <a href="javascript:openDetail();ajax.load('ajax','chi-tiet-ket-qua-xo-so.php?ngay=2010-11-23',%20'Chi%20ti%E1%BA%BFt%20k%E1%BA%BFt%20qu%E1%BA%A3');">23/11/2010</a> - độn 05/12/2010 vẫn chưa ra lại là: <b>12</b> ngày<br>cặp số <b>76</b> ra ngày: <a href="javascript:openDetail();ajax.load('ajax','chi-tiet-ket-qua-xo-so.php?ngay=2010-11-23',%20'Chi%20ti%E1%BA%BFt%20k%E1%BA%BFt%20qu%E1%BA%A3');">23/11/2010</a> - độn 05/12/2010 vẫn chưa ra lại là: <b>12</b> ngày<br>cặp số <b>83</b> ra ngày: <a href="javascript:openDetail();ajax.load('ajax','chi-tiet-ket-qua-xo-so.php?ngay=2010-11-25',%20'Chi%20ti%E1%BA%BFt%20k%E1%BA%BFt%20qu%E1%BA%A3');">25/11/2010</a> - độn 05/12/2010 vẫn chưa ra lại là: <b>10</b> ngày<br>cặp số <b>99</b> ra ngày: <a href="javascript:openDetail();ajax.load('ajax','chi-tiet-ket-qua-xo-so.php?ngay=2010-11-24',%20'Chi%20ti%E1%BA%BFt%20k%E1%BA%BFt%20qu%E1%BA%A3');">24/11/2010</a> - độn 05/12/2010 vẫn chưa ra lại là: <b>11</b> ngày<br><table style="border-collapse: collapse;" width="720" border="1" cellpadding="0" cellspacing="0">
