@@ -133,6 +133,34 @@ function getArrKQ($type,$from_date,$to_date) {
     return $arr_temp;   
 }
 
+//Ham tra ve mang ket qua chi tiet xo so theo ngay va tinh
+function getKQChiTiet($ngay,$type) {
+    
+    //select du lieu    
+    $db = new SQL();
+    //chi hien thi ket qua xo so mien bac
+    $query = "SELECT * 
+              FROM xoso   
+              WHERE type = '$type' AND ngay = '$ngay'";  
+              
+    echo "<br/> query=".$query;
+    $db->query($query, SQL_ALL);
+    $arr_count = $db->numRows;    
+    $arr_temp = $db->record;
+    
+    $db->close();
+    
+    return $arr_temp;   
+}
+//Tra ve ngay sau khi tru di 1 so ngay
+function formatDate($date)
+{    
+    $newdate = explode('-', $date);
+    //echo "newdate=".$newdate;
+    return $newdate[2]."/".$newdate[1]."/".$newdate[0]; 
+}
+
+
 //Tra ve ngay sau khi tru di 1 so ngay
 function subtractDaysFromday($date,$number_of_days)
 {    
@@ -205,6 +233,18 @@ function displayKQLoToGan($vars) {
     require_once('template/ThongKeLoToGan.tpl');
 }
 
+//Ham hien thi ket qua chi tiet theo ngay va ma tinh
+function KQChiTiet($vars) {
+    //Lay gia tri tren form       
+    
+    //ma tinh
+    if (isset($vars['slcTinh'])){
+        $type = $vars['slcTinh'];
+    }else{
+        $type = "mb";
+    } 
+    
+}
 
 //Ham hien thi logo gan
 function displayLoToGan($vars) {
