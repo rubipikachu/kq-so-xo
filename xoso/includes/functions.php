@@ -144,8 +144,7 @@ function getKQChiTiet($ngay,$type) {
               WHERE type = '$type' AND ngay = '$ngay'";  
               
     echo "<br/> query=".$query;
-    $db->query($query, SQL_ALL);
-    $arr_count = $db->numRows;    
+    $db->query($query, SQL_INIT);    
     $arr_temp = $db->record;
     
     $db->close();

@@ -1,7 +1,9 @@
 <?php
-
+require_once('config.php');
+require_once('classes/sql.class.php');
+require_once('includes/functions.php');
 /**
- * @author sonnam
+ * @author thaisoniph
  * @copyright 2010
  */
 //echo $_REQUEST['ngay'];
@@ -9,7 +11,11 @@
 //echo $_GET['ngay'];
     $ngay = $_GET['ngay'];
     $type = $_GET['ma_tinh'];
-    
+        
+    $arrKQ = getKQChiTiet($ngay,$type);
+    $temp = $arrKQ['g0'].'-'.$arrKQ['g1'].'-'.$arrKQ['g2'].'-'.$arrKQ['g3'].'-'.$arrKQ['g4']
+                    .'-'.$arrKQ['g5'].'-'.$arrKQ['g6'].'-'.$arrKQ['g7'].'-'.$arrKQ['g8'];
+    //echo "<br/>Ngay <b>" .$arrKQ['ngay']. "</b>: ".getStr($temp);
 
 ?>
 <!-- Bat dau noi dung trong trang -->
@@ -20,15 +26,15 @@
 					<table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
 		<tr>
 			<td colspan="3" class="f_arial f_size14">
-            	<div  style="line-height:22px;" align="center"><strong>K&#7871;t qu&#7843; x&#7893; s&#7889; Nam &#272;&#7883;nh</strong><br>
-	        	M&#7903; th&#432;&#7903;ng: <strong class="c_red">Th&#7913; b&#7843;y</strong> ngày <strong class="c_red">20</strong> tháng <strong class="c_red">11</strong> nam <strong class="c_red">2010</strong>
+            	<div  style="line-height:22px;" align="center"><strong>K&#7871;t qu&#7843; x&#7893; s&#7889; <?=$type?></strong><br>
+	        	M&#7903; th&#432;&#7903;ng: <strong class="c_red"><?=$ngay?>
               </div>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="3" class="f_arial f_size14">				  		
 				<div  style="line-height:22px;">
-								<strong>2 s&#7889; cu&#7889;i: </strong>52,18,47,68,70,03,78,87,39,66,78,05,03,54,62,73,11,82,27,53,74,48,83,93,82,79,44						                
+								<strong>2 s&#7889; cu&#7889;i: </strong><?=getStr($temp)?>					                
                 </div>
 			</td>
 		</tr>
@@ -40,7 +46,7 @@
 							<div class="c_gray f_bold f_arial f_size12 pd5">Gi&#7843;i &#273;&#7863;c bi&#7879;t</div>
 						</td>
 						<td width="75%" bgcolor="#ffffff">
-							<div class="column one"><div class="section"><span style="color:#FF0000">43352</span></div></div>
+							<div class="column one"><div class="section"><span style="color:#FF0000"><?=$arrKQ['g0']?></span></div></div>
 						</td>
 					</tr>
 					<tr>
@@ -48,7 +54,7 @@
 							<div class="c_gray f_bold f_arial f_size12 pd5">Gi&#7843;i nh&#7845;t</div>
 						</td>
 						<td width="75%" bgcolor="#ffffff">
-							<div class="column one"><div class="section">06118</div></div>
+							<div class="column one"><div class="section"><?=$arrKQ['g1']?></div></div>
 						</td>
 					</tr>
 					<tr>
@@ -57,7 +63,7 @@
 						</td>
 						<td width="75%" bgcolor="#ffffff">
 							<div style="padding-left:60px; padding-right:60px;">
-	                            <div class="column two"><div class="section">85847</div><div class="section">59868</div></div>
+	                            <div class="column two"><div class="section"><?=$arrKQ['g2']?></div></div>
                             </div>
 						</td>
 					</tr>
@@ -67,8 +73,7 @@
                         </td>
 						<td width="75%" bgcolor="#ffffff">							
 								<div class="column three">
-									<div class="section">32170</div><div class="section">98303</div><div class="section">10778</div>
-									<div class="section">63987</div><div class="section">44639</div><div class="section">92366</div>
+									<div class="section"><?=$arrKQ['g3']?></div>
                                 </div>
 						</td>
 					</tr>
@@ -78,7 +83,7 @@
                         </td>
 						<td width="75%" bgcolor="#ffffff">							
                         	<div style="padding-left:60px; padding-right:60px;">
-                            	<div class="column two"><div class="section">0378</div><div class="section">9305</div><div class="section">4403</div><div class="section">4854</div></div>
+                            	<div class="column two"><div class="section"><?=$arrKQ['g4']?></div></div>
                             </div>  
 						</td>
 					</tr>
@@ -88,8 +93,7 @@
                         </td>
 						<td width="75%" bgcolor="#ffffff">
 							<div class="column three">
-								<div class="section">3962</div><div class="section">0773</div><div class="section">2611</div>
-								<div class="section">7282</div><div class="section">9527</div><div class="section">9053</div>
+								<div class="section"><?=$arrKQ['g5']?></div>
 							</div>
 						</td>
 					</tr>
@@ -99,8 +103,7 @@
 						</td>
 						<td width="75%" bgcolor="#ffffff">
 							<div class="column three">
-								<div class="section">074</div><div class="section">348</div><div class="section">183</div>
-							</div>
+								<div class="section"><?=$arrKQ['g6']?></div>		</div>
 						</td>
 					</tr>
 					<tr>
@@ -109,7 +112,7 @@
                         </td>
 						<td width="75%" bgcolor="#ffffff">							
 	                            <div class="column four">
-									<div class="section">93</div><div class="section">82</div><div class="section">79</div><div class="section">44</div>
+									<div class="section"><?=$arrKQ['g7']?></div>
 								</div>
 						</td>
 					</tr>			
