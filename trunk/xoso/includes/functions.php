@@ -2,8 +2,6 @@
 
 /******************************************************************************/
 
-
-
 //Ham tra ve khoang thoi gian giua 2 ngay
 function datediff($interval, $datefrom, $dateto, $using_timestamps = false) { 
     /* $interval can be: 
@@ -78,7 +76,7 @@ function datediff($interval, $datefrom, $dateto, $using_timestamps = false) {
         return $datediff; 
 } 
  
-//Ham tra ve xau chua 2 chu so cuoi cua ket qua xo so theo 1 ngay
+//Ham tra ve xau chua 2 chu so cuoi cua ket qua xo so theo 1 ngay,cac so cach nhau boi dau "-"
 function getStr($str)
 {
     $array = explode('-',$str);
@@ -98,12 +96,11 @@ function getArray($str)
     }   
     return $arr;
 }
-//Ham tra ve mang ket qua xo so tu ngay, den ngay
+//Ham tra ve mang ket qua xo so tu ngay, den ngay theo ma tinh
 function getArrKQ($type,$from_date,$to_date) {
-    
-    //select du lieu    
+            
     $db = new SQL();
-    //chi hien thi ket qua xo so mien bac
+    //Viet truy van
     $query = "SELECT * 
               FROM xoso   
               WHERE type = '$type' AND '$from_date' <= ngay AND ngay <= '$to_date' order by ngay desc" ;  
@@ -112,53 +109,19 @@ function getArrKQ($type,$from_date,$to_date) {
     $db->query($query, SQL_ALL);
     $arr_count = $db->numRows;    
     $arr_temp = $db->record;
-    /*echo "<br/>Ketqua1=";
-    $j=0;
-    while ($j<$arr_count)
-    {
-        echo $arr_temp[$j]['g0'];
-        $j++;
-        
-    }
-    //for ($i=0;$i<count($arr);$i++){
-      //  echo $arr[$i];
-    //}
-    echo "<br/>Ketqua2=";  
-    foreach ($arr_temp as $i) {
-        echo $i['g0'];
-    }
-    */
+    
     $db->close();
     
     return $arr_temp;   
 }
 
-//Ham tra ve mang ket qua chi tiet xo so theo ngay va tinh
-function getKQChiTiet($ngay,$type) {
-    
-    //select du lieu    
-    $db = new SQL();
-    //chi hien thi ket qua xo so mien bac
-    $query = "SELECT * 
-              FROM xoso   
-              WHERE type = '$type' AND ngay = '$ngay'";  
-              
-    echo "<br/> query=".$query;
-    $db->query($query, SQL_INIT);    
-    $arr_temp = $db->record;
-    
-    $db->close();
-    
-    return $arr_temp;   
-}
-//Tra ve ngay sau khi tru di 1 so ngay
+//format ngay theo dinh danh ngay/thang/nam
 function formatDate($date)
 {    
     $newdate = explode('-', $date);
     //echo "newdate=".$newdate;
     return $newdate[2]."/".$newdate[1]."/".$newdate[0]; 
 }
-
 
 //Tra ve ngay sau khi tru di 1 so ngay
 function subtractDaysFromday($date,$number_of_days)
@@ -177,8 +140,8 @@ function displayKQLoToGan($vars) {
         $BienDoGan = $vars['number'];    
     }else{
         $vars['number'] = 10;
-        $BienDoGan = 10;
     }
+    
     //ma tinh
     if (isset($vars['slcTinh'])){
         $type = $vars['slcTinh'];
@@ -205,93 +168,33 @@ function displayKQLoToGan($vars) {
         $vars['top_day'] = "30/09/2010";
         $to_date = '2010-09-30';
     }    
-    //echo "fromdate=".$from_date;    
-    //echo "todate=".$to_date;
-    //echo "Biendogan=".$BienDoGan;
     
-    //echo "ngay1=".$newdate;      
-    //echo "<br/> ngay2=".subtractDaysFromday($to_date,$BienDoGan);
     $date_temp = subtractDaysFromday($to_date,$BienDoGan);
     //Lay ket qua tu to_date den $date_temp
     $arrKQ1 = getArrKQ($type,$from_date,$date_temp);
-    //echo "<br/>Ket qua tu $from_date den $date_temp";
-    //foreach ($arrKQ1 as $i){
-//        $temp = $i['g0'].'-'.$i['g1'].'-'.$i['g2'].'-'.$i['g3'].'-'.$i['g4']
-//        .'-'.$i['g5'].'-'.$i['g6'].'-'.$i['g7'].'-'.$i['g8'];
-//        echo "<br/>Ngay " .$i['ngay']. ": ".getStr($temp);
-//    }
-    //Lay ve ket qua ty $date_temp den to_date
-    //echo "<br/>Ket qua tu $date_temp den $to_date";
-    $arrKQ2 = getArrKQ($type,$date_temp,$to_date);
-    //foreach ($arrKQ2 as $i){
-//        $temp = $i['g0'].'-'.$i['g1'].'-'.$i['g2'].'-'.$i['g3'].'-'.$i['g4']
-//        .'-'.$i['g5'].'-'.$i['g6'].'-'.$i['g7'].'-'.$i['g8'];
-//        echo "<br/>Ngay " .$i['ngay']. ": ".getStr($temp);
-//    }
+    
+    $arrKQ2 = getArrKQ($type,$date_temp,$to_date);    
      
     require_once('template/ThongKeLoToGan.tpl');
 }
 
-//Ham hien thi ket qua chi tiet theo ngay va ma tinh
-function KQChiTiet($vars) {
-    //Lay gia tri tren form       
-    
-    //ma tinh
-    if (isset($vars['slcTinh'])){
-        $type = $vars['slcTinh'];
-    }else{
-        $type = "mb";
-    } 
-    
-}
-
-//Ham hien thi logo gan
-function displayLoToGan($vars) {
-    //Lay gia tri tren form
-    
-    if (isset($vars['number']))
-    {
-        $BienDoGan = $vars['number'];    
-    }else{
-        $vars['number'] = 10;
-    }
-    
-    $type = $vars['slcTinh'];
-    
-    if (isset($vars['bottom_day']))
-    {
-        $array_date = explode('/', $vars['bottom_day']);
-        $from_date = $array_date[2] . '-' . $array_date[1] . '-' . $array_date[0];    
-    }
-    else {
-        $vars['bottom_day'] = "10/09/2010";
-    }
-    
-    if (isset($vars['top_day']))
-    {
-        $array_date = explode('/', $vars['top_day']);
-        $to_date = $array_date[2] . '-' . $array_date[1] . '-' . $array_date[0];    
-    }
-    else {
-        $vars['top_day'] = "10/09/2010";
-    }    
+//Ham tra ve mang ket qua chi tiet xo so theo ngay va tinh
+function getKQChiTiet($ngay,$type) {
         
-    echo "Datediff_1=".datediff('d',$from_date,$to_date);
-    //echo "Datediff_2=".dateDiff($from_date,$to_date);
-    //select du lieu    
     $db = new SQL();
-    //chi hien thi ket qua xo so mien bac
+    //cau truy van
     $query = "SELECT * 
               FROM xoso   
-              WHERE type = '$type' AND '$from_date' <= ngay AND ngay <= '$to_date'" ;  
+              WHERE type = '$type' AND ngay = '$ngay'";  
               
     echo "<br/> query=".$query;
     $db->query($query, SQL_ALL);
-    $sizeListKetQua = $db->numRows;
-    $ListKetQua = $db->record;    
+    $arr_count = $db->numRows;    
+    $arr_temp = $db->record;
+    
     $db->close();
     
-    require_once('template/ThongKeLoToGan.tpl');
+    return $arr_temp;   
 }
 
 function displayAdminHeader($current_page_title = '') {
