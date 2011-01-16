@@ -1,6 +1,115 @@
 <?php
 
 /******************************************************************************/
+//Ham tinh dac biet tuan
+function displayBangDacBietTuan($vars) {
+    //Lay gia tri tren form
+    //Bien do gan    
+    if (isset($vars['number']))
+    {
+        $BienDoGan = $vars['number'];    
+    }else{
+        $vars['number'] = 10;
+    }
+    
+    //ma tinh
+    if (isset($vars['slcTinh'])){
+        $type = $vars['slcTinh'];
+    }else{
+        $type = "mb";
+    }
+    //Tu ngay
+    if (isset($vars['bottom_day']))
+    {
+        $array_date = explode('/', $vars['bottom_day']);
+        $from_date = $array_date[2] . '-' . $array_date[1] . '-' . $array_date[0];    
+    }
+    else {
+        $vars['bottom_day'] = "1/09/2010";
+        $from_date = '2010-09-01';
+    }
+    //Den ngay
+    if (isset($vars['top_day']))
+    {
+        $array_date = explode('/', $vars['top_day']);
+        $to_date = $array_date[2] . '-' . $array_date[1] . '-' . $array_date[0];    
+    }
+    else {
+        $vars['top_day'] = "30/09/2010";
+        $to_date = '2010-09-30';
+    }    
+        
+    //Lay ket qua tu to_date den $to_date
+    $arrKQ = getArrKQ($type,$from_date,$to_date);    
+     
+    require_once('template/BangDacBietTuan.tpl');
+}
+//Ham xac dinh thu tu ngay/thang/nam
+function TimThu($ngay){
+    $khoang_cach_ngay = datediff('d','1/1/1',$ngay);
+    $temp=$khoang_cach_ngay % 7;
+    switch($temp)
+    {
+        case 0:$thu="Th? 2";
+            break;
+        case 1:$thu="Th? 3";
+            break;
+        case 2:$thu="Th? 4";
+            break;
+        case 3:$thu="Th? 5";
+            break;
+        case 4:$thu="Th? 6";           
+            break;
+        case 5:$thu="Th? 7";
+            break;
+        default:$thu="Ch? nh?t";
+    }
+    return $thu;
+}
+//Ham thong ke tan suat logo
+function displayTanSuatLoTo($vars) {
+    //Lay gia tri tren form
+    //Bien do gan    
+    if (isset($vars['number']))
+    {
+        $BienDoGan = $vars['number'];    
+    }else{
+        $vars['number'] = 10;
+    }
+    
+    //ma tinh
+    if (isset($vars['slcTinh'])){
+        $type = $vars['slcTinh'];
+    }else{
+        $type = "mb";
+    }
+    //Tu ngay
+    if (isset($vars['bottom_day']))
+    {
+        $array_date = explode('/', $vars['bottom_day']);
+        $from_date = $array_date[2] . '-' . $array_date[1] . '-' . $array_date[0];    
+    }
+    else {
+        $vars['bottom_day'] = "1/09/2010";
+        $from_date = '2010-09-01';
+    }
+    //Den ngay
+    if (isset($vars['top_day']))
+    {
+        $array_date = explode('/', $vars['top_day']);
+        $to_date = $array_date[2] . '-' . $array_date[1] . '-' . $array_date[0];    
+    }
+    else {
+        $vars['top_day'] = "30/09/2010";
+        $to_date = '2010-09-30';
+    }    
+        
+    //Lay ket qua tu to_date den $to_date
+    $arrKQ = getArrKQ($type,$from_date,$to_date);    
+     
+    require_once('template/ThongKeTanSuatLoTo.tpl');
+}
+
 
 //Ham tra ve khoang thoi gian giua 2 ngay
 function datediff($interval, $datefrom, $dateto, $using_timestamps = false) { 

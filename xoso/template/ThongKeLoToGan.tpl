@@ -108,7 +108,7 @@
                   </select>						 
                   
                 </td>
-                <td colspan="2" class="f_arial f_size12">
+                <td class="f_arial f_size12">
                <div class="div">Biên độ gan:
                   <input name="number" id="number" style="width: 60px;" value="<?=$vars['number'] ?>" type="text">						 
               (Nhập số ngày)</div>                         
@@ -133,20 +133,15 @@
         
         Các cặp số đuôi chưa ra theo biên độ <?=$BienDoGan?> ngày trở lên: <br>
         <?php
-               //echo "<br/>Ket qua tu <b> $from_date </b> den <b> $date_temp </b>";
-                foreach ($arrKQ1 as $i){
-                    $temp = $i['g0'].'-'.$i['g1'].'-'.$i['g2'].'-'.$i['g3'].'-'.$i['g4']
-                    .'-'.$i['g5'].'-'.$i['g6'].'-'.$i['g7'].'-'.$i['g8'];
-                    //echo "<br/>Ngay <b>" .$i['ngay']. "</b>: ".getStr($temp);
-                }
-                //Lay ve ket qua ty $date_temp den to_date
-                //echo "<br/>Ket qua tu <b> $date_temp </b> den <b> $to_date </b>";                
+                  
                 
                 foreach ($arrKQ2 as $i){
                     $temp = $i['g0'].'-'.$i['g1'].'-'.$i['g2'].'-'.$i['g3'].'-'.$i['g4']
                     .'-'.$i['g5'].'-'.$i['g6'].'-'.$i['g7'].'-'.$i['g8'];
-                    //echo "<br/>Ngay <b>" .$i['ngay']. "</b>: ".getStr($temp);
+                    
+                    //mang chua 2 chu so cuoi cua ket qua xo so theo 1 ngay
                     $arr1 = getArray($temp);
+                    //mang chua cac cap so ko lap
                     static $a = array();
                     foreach ($arr1 as $j){
                         if (!in_array($j,$a)){
@@ -430,12 +425,4 @@ Các cặp số LOTO có xác suất cao nhất theo chu trình nuôi (biên đ�
     </div>                
     <div class="clear"></div>
 </body>        
-<script type="text/javascript">
-    $(function(){
-        
-      $("#slcTinh").change(function() {
-        //alert($("#slcTinh").val());
-      });
-      
-    });
-</script>        
+       
