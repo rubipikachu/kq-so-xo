@@ -40,7 +40,7 @@ function displayBangDacBietTuan($vars) {
     }    
         
     //Lay ket qua tu to_date den $to_date
-    $arrKQ = getArrKQ($type,$from_date,$to_date);    
+    $arrKQ = getArrKQASC($type,$from_date,$to_date);    
      
     require_once('template/BangDacBietTuan.tpl');
 }
@@ -50,19 +50,19 @@ function TimThu($ngay){
     $temp=$khoang_cach_ngay % 7;
     switch($temp)
     {
-        case 0:$thu="Th? 2";
+        case 0:$thu=3;//"Th? 2"
             break;
-        case 1:$thu="Th? 3";
+        case 1:$thu=4;//"Th? 3"
             break;
-        case 2:$thu="Th? 4";
+        case 2:$thu=5;//"Th? 4"
             break;
-        case 3:$thu="Th? 5";
+        case 3:$thu=6;//"Th? 5"
             break;
-        case 4:$thu="Th? 6";           
+        case 4:$thu=7;//"Th? 6"           
             break;
-        case 5:$thu="Th? 7";
+        case 5:$thu=8;//"Th? 7"
             break;
-        default:$thu="Ch? nh?t";
+        default:$thu=2;//"Ch? nh?t"
     }
     return $thu;
 }
@@ -205,7 +205,25 @@ function getArray($str)
     }   
     return $arr;
 }
-//Ham tra ve mang ket qua xo so tu ngay, den ngay theo ma tinh
+//Ham tra ve mang ket qua xo so tu ngay, den ngay theo ma tinh sap xep theo ngay tang dan
+function getArrKQASC($type,$from_date,$to_date) {
+            
+    $db = new SQL();
+    //Viet truy van
+    $query = "SELECT * 
+              FROM xoso   
+              WHERE type = '$type' AND '$from_date' <= ngay AND ngay <= '$to_date'" ;  
+              
+    echo "<br/> query=".$query;
+    $db->query($query, SQL_ALL);
+    $arr_count = $db->numRows;    
+    $arr_temp = $db->record;
+    
+    $db->close();
+    
+    return $arr_temp;   
+}
+//Ham tra ve mang ket qua xo so tu ngay, den ngay theo ma tinh sap xep theo ngay giam dan
 function getArrKQ($type,$from_date,$to_date) {
             
     $db = new SQL();

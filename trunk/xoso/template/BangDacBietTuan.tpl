@@ -179,108 +179,54 @@
 											<td align="center" bgcolor="#000080" height="25"><font color="#ffffff"><b>Th? b?y</b></font></td>
 											<td align="center" bgcolor="#000080" height="25"><font color="#ffffff"><b>Ch? Nh?t</b></font></td>
 										</tr>
-																				<tr>
-											<td align="center"><b><font size="4"></font></b></td>
-											<td align="center"><b><font size="4"></font></b></td>
-											<td align="center"><b><font size="4"></font></b></td>
-											<td align="center"><b><font size="4"></font></b></td>
-											<td align="center"><b><font size="4"></font></b></td>
-											<td align="center"><b style="color: rgb(51, 51, 153);"><font size="4">92963</font></b></td>
-											<td align="center"><b style="color: rgb(255, 0, 0);"><font size="4">80502</font></b></td>
-										</tr>
-										<tr>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1"></font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1"></font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1"></font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1"></font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1"></font></td>
-											<td align="center" bgcolor="#dddddd"><font style="color: rgb(51, 51, 153);" face="Arial" size="1">18/12/2010</font></td>
-											<td align="center" bgcolor="#dddddd"><font style="color: rgb(255, 0, 0);" face="Arial" size="1">19/12/2010</font></td>
-										</tr>
-										
-										
-																				<tr>
-											<td align="center"><b><font size="4">84203</font></b></td>
-											<td align="center"><b><font size="4">41741</font></b></td>
-											<td align="center"><b><font size="4">96593</font></b></td>
-											<td align="center"><b><font size="4">26395</font></b></td>
-											<td align="center"><b><font size="4">34032</font></b></td>
-											<td align="center"><b style="color: rgb(51, 51, 153);"><font size="4">26845</font></b></td>
-											<td align="center"><b style="color: rgb(255, 0, 0);"><font size="4">80790</font></b></td>
-										</tr>
-										<tr>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">20/12/2010</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">21/12/2010</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">22/12/2010</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">23/12/2010</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">24/12/2010</font></td>
-											<td align="center" bgcolor="#dddddd"><font style="color: rgb(51, 51, 153);" face="Arial" size="1">25/12/2010</font></td>
-											<td align="center" bgcolor="#dddddd"><font style="color: rgb(255, 0, 0);" face="Arial" size="1">26/12/2010</font></td>
-										</tr>
-										
-										
-																				<tr>
-											<td align="center"><b><font size="4">46410</font></b></td>
-											<td align="center"><b><font size="4">68962</font></b></td>
-											<td align="center"><b><font size="4">51224</font></b></td>
-											<td align="center"><b><font size="4">17617</font></b></td>
-											<td align="center"><b><font size="4">72070</font></b></td>
-											<td align="center"><b style="color: rgb(51, 51, 153);"><font size="4">24028</font></b></td>
-											<td align="center"><b style="color: rgb(255, 0, 0);"><font size="4">41927</font></b></td>
-										</tr>
-										<tr>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">27/12/2010</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">28/12/2010</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">29/12/2010</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">30/12/2010</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">31/12/2010</font></td>
-											<td align="center" bgcolor="#dddddd"><font style="color: rgb(51, 51, 153);" face="Arial" size="1">01/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font style="color: rgb(255, 0, 0);" face="Arial" size="1">02/01/2011</font></td>
-										</tr>
-										
-										
-																				<tr>
-											<td align="center"><b><font size="4">05424</font></b></td>
-											<td align="center"><b><font size="4">53882</font></b></td>
-											<td align="center"><b><font size="4">61942</font></b></td>
-											<td align="center"><b><font size="4">35003</font></b></td>
-											<td align="center"><b><font size="4">99307</font></b></td>
-											<td align="center"><b style="color: rgb(51, 51, 153);"><font size="4">00865</font></b></td>
-											<td align="center"><b style="color: rgb(255, 0, 0);"><font size="4">51294</font></b></td>
-										</tr>
-										<tr>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">03/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">04/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">05/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">06/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">07/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font style="color: rgb(51, 51, 153);" face="Arial" size="1">08/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font style="color: rgb(255, 0, 0);" face="Arial" size="1">09/01/2011</font></td>
-										</tr>
-										
-										
-																				<tr>
-											<td align="center"><b><font size="4">07641</font></b></td>
-											<td align="center"><b><font size="4">34785</font></b></td>
-											<td align="center"><b><font size="4">09925</font></b></td>
-											<td align="center"><b><font size="4">16322</font></b></td>
-											<td align="center"><b><font size="4">63970</font></b></td>
-											<td align="center"><b style="color: rgb(51, 51, 153);"><font size="4">77030</font></b></td>
-											<td align="center"><b style="color: rgb(255, 0, 0);"><font size="4">01543</font></b></td>
-										</tr>
-										<tr>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">10/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">11/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">12/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">13/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font face="Arial" size="1">14/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font style="color: rgb(51, 51, 153);" face="Arial" size="1">15/01/2011</font></td>
-											<td align="center" bgcolor="#dddddd"><font style="color: rgb(255, 0, 0);" face="Arial" size="1">16/01/2011</font></td>
-										</tr>
-										
-										
-											
-										
+                                        <?php                                                   
+                         
+                $dem = 0;
+                foreach ($arrKQ as $i){
+                    $giai = $i['g0'];
+                    $dem++;                    
+                    $ngay = $i['ngay'];
+                    $thu = TimThu($ngay);
+                    
+                    //echo "Thu: ".$thu;
+                    //Neu la giai dau tien thi can xac dinh la thu may
+                    if($dem == 1){ 
+                        $dong = "<tr>";
+                        $dongNgay = "<tr  bgcolor='#dddddd'>";
+                        for ($k = 2;$k < $thu;$k++){
+                            $dong .= "<td></td>";
+                            $dongNgay .= "<td bgcolor='#dddddd'></td>";
+                        }
+                                                  
+                        $dong .= "<td align='center'><b>{$giai}</b></td>"; 
+                        $dongNgay .= "<td align='center' bgcolor='#dddddd'><b><font size='1'>".formatDate($ngay)."</font></b></td>";
+                        
+                        if($thu == 8){
+                            $dong .= "</tr>";
+                            $dongNgay .= "</tr>";
+                            echo $dong;
+                            echo $dongNgay;
+                        }    
+                        
+                    }
+                    else {
+                       if($thu == 2){    
+                            $dong = "<tr>";
+                            $dongNgay = "<tr>";
+                       }
+                       $dong .= "<td align='center'><b>{$giai}</b></td>"; 
+                       $dongNgay .= "<td align='center' bgcolor='#dddddd'><b><font size='1'>".formatDate($ngay)."</font></b></td>";
+                        
+                        if($thu == 8){
+                            $dong .= "</tr>";
+                            $dongNgay .= "</tr>";
+                            echo $dong;
+                            echo $dongNgay;
+                        }  
+                    }                    
+                }        
+         ?>
+								
 									</tbody></table>          
 																			
 								</td>
