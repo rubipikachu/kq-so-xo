@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link type="text/css" rel="stylesheet" href="style/main.css" />
     <link type="text/css" rel="stylesheet" href="style/jsDatePick_ltr.min.css" />
-    <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+    <script type="text/javascript" src="http://www.google-analytics.com/ga.js"></script>
     <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="js/jsDatePick.jquery.min.1.2.js"></script>
     <script type="text/javascript" src="js/popup.js"></script>
@@ -63,14 +63,14 @@
 									}else{
 										$("#full_screen").removeClass("fullscreen");
 										$("#full_screen").addClass("smallscreen");
-										$("#click_to_full").html('Xem to‡n m‡n hÏnh');
+										$("#click_to_full").html('Xem to√†n m√†n h√¨nh');
 									}
 								}
 						</script>
 						
 						<div id="result_detail" style="display: none; z-index: 10000;"></div>						
 						<div id="title_header" style="text-align: left; padding-left: 5px; padding-right: 5px;">
-							<div class="title_hearder link_ione a_left pl5 f_bold">Th?ng kÍ t?n su?t loto c?a x? s? mi?n B?c</div>
+							<div class="title_hearder link_ione a_left pl5 f_bold">Th·ªëng k√™ t·∫ßn su·∫•t loto to√†n Mi·ªÅn B·∫Øc</div>
 					  </div>
 						<table align="center" bgcolor="#d7d7d7" border="0" cellpadding="0" cellspacing="0" width="740">
 							<tbody><tr>
@@ -98,17 +98,17 @@ dÛ b?n cÛ th? d? do·n c?p s? n‡o s?p ra v‡ ra trong kho?ng n‡o?.<br>
                                         <table align="center" border="0" cellpadding="0" cellspacing="0" width="92%">
                                           <tbody><tr>
                                             <td class="f_arial f_size12" height="50">						
-                    T? ng‡y :<span style="position: relative;">
+                    T·ª´ ng√†y :<span style="position: relative;">
                     <input globalnumber="694" name="bottom_day" id="bottom_day" value="<?php echo $vars['bottom_day']; ?>" style="width: 100px;" type="text"><div style="z-index: 3; position: absolute; top: 18px; left: 0px; display: none;" class="JsDatePickBox"><div class="boxLeftWall"><div class="leftTopCorner"></div><div class="leftWall"></div><div class="leftBottomCorner"></div></div><div class="boxMain"><div class="boxMainInner"><div globalnumber="694" class="controlsBar"><div globalnumber="694" class="monthForwardButton"></div><div globalnumber="694" class="monthBackwardButton"></div><div globalnumber="694" class="yearForwardButton"></div><div globalnumber="694" class="yearBackwardButton"></div><div class="controlsBarText">December, 2010</div></div><div class="clearfix"></div><div class="tooltip"></div><div class="weekDaysRow"><div class="weekDay">Mon</div><div class="weekDay">Tue</div><div class="weekDay">Wed</div><div class="weekDay">Thu</div><div class="weekDay">Fri</div><div class="weekDay">Sat</div><div style="margin-right: 0px;" class="weekDay">Sun</div></div><div class="boxMainCellsContainer"><div class="skipDay"></div><div class="skipDay"></div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">1</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">2</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">3</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">4</div><div class="dayNormalToday" istoday="1" style="margin-right: 0px; background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" globalnumber="694">5</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">6</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">7</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">8</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">9</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">10</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">11</div><div class="dayNormal" style="margin-right: 0px; background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" globalnumber="694">12</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">13</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">14</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">15</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">16</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">17</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">18</div><div class="dayNormal" style="margin-right: 0px; background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" globalnumber="694">19</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">20</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">21</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">22</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">23</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">24</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">25</div><div class="dayNormal" style="margin-right: 0px; background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" globalnumber="694">26</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">27</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">28</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">29</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">30</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="694">31</div></div><div class="clearfix"></div></div></div><div class="boxRightWall"><div class="rightTopCorner"></div><div class="rightWall"></div><div class="rightBottomCorner"></div></div><div class="clearfix"></div><div globalnumber="694" class="jsDatePickCloseButton"></div><div class="topWall"></div><div class="bottomWall"></div></div></span>dd/mm/yyyy
                 </td>
                 <td class="f_arial f_size12" align="center">
-                    –?n ng‡y :<span style="position: relative;">
+                    ƒê·∫øn ng√†y :<span style="position: relative;">
                     <input globalnumber="938" name="top_day" id="top_day" value="<?php echo $vars['top_day']; ?>" style="width: 100px;" type="text"><div style="z-index: 3; position: absolute; top: 18px; left: 0px; display: none;" class="JsDatePickBox"><div class="boxLeftWall"><div class="leftTopCorner"></div><div class="leftWall"></div><div class="leftBottomCorner"></div></div><div class="boxMain"><div class="boxMainInner"><div globalnumber="938" class="controlsBar"><div globalnumber="938" class="monthForwardButton"></div><div globalnumber="938" class="monthBackwardButton"></div><div globalnumber="938" class="yearForwardButton"></div><div globalnumber="938" class="yearBackwardButton"></div><div class="controlsBarText">December, 2010</div></div><div class="clearfix"></div><div class="tooltip"></div><div class="weekDaysRow"><div class="weekDay">Mon</div><div class="weekDay">Tue</div><div class="weekDay">Wed</div><div class="weekDay">Thu</div><div class="weekDay">Fri</div><div class="weekDay">Sat</div><div style="margin-right: 0px;" class="weekDay">Sun</div></div><div class="boxMainCellsContainer"><div class="skipDay"></div><div class="skipDay"></div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">1</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">2</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">3</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">4</div><div class="dayNormalToday" istoday="1" style="margin-right: 0px; background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" globalnumber="938">5</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">6</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">7</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">8</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">9</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">10</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">11</div><div class="dayNormal" style="margin-right: 0px; background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" globalnumber="938">12</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">13</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">14</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">15</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">16</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">17</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">18</div><div class="dayNormal" style="margin-right: 0px; background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" globalnumber="938">19</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">20</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">21</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">22</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">23</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">24</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">25</div><div class="dayNormal" style="margin-right: 0px; background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" globalnumber="938">26</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">27</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">28</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">29</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">30</div><div style="background: url(&quot;img/ocean_blue_dayNormal.gif&quot;) no-repeat scroll left top transparent;" class="dayNormal" globalnumber="938">31</div></div><div class="clearfix"></div></div></div><div class="boxRightWall"><div class="rightTopCorner"></div><div class="rightWall"></div><div class="rightBottomCorner"></div></div><div class="clearfix"></div><div globalnumber="938" class="jsDatePickCloseButton"></div><div class="topWall"></div><div class="bottomWall"></div></div></span>dd/mm/yyyy
                 </td>
                                          </tr>
                                          <tr>
                 <td class="f_arial f_size12" height="50">
-              Ch?n t?nh:
+              Ch·ªçn t·ªânh:
                   <select name="slcTinh" id="slcTinh">
                   <?php
                   		$db = new SQL();    
@@ -132,7 +132,7 @@ dÛ b?n cÛ th? d? do·n c?p s? n‡o s?p ra v‡ ra trong kho?ng n‡o?.<br>
                             $i++;
                         }
                   ?>
-                  </select>						 
+                  </select>
                   
                 </td>
                 <td>                              
@@ -141,14 +141,14 @@ dÛ b?n cÛ th? d? do·n c?p s? n‡o s?p ra v‡ ra trong kho?ng n‡o?.<br>
                                          <tr>
                                             <td colspan="2">
                                             <div class="f_arial f_size12">
-                                                  <input name="kieuxem" value="0" checked="checked" type="radio">Xem theo chi?u d?c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;						  
-                                                  <input name="kieuxem" value="1" type="radio">Xem theo chi?u ngang&nbsp;
-                                                <br>					      
-                                            </div>                          
+                                                  <input name="kieuxem" value="0" checked="checked" type="radio">Xem theo chi·ªÅu d·ªçc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;						  
+                                                  <input name="kieuxem" value="1" type="radio">Xem theo chi·ªÅu ngang&nbsp;
+                                                <br>
+                                            </div>                        
                                             </td>
                                           </tr>
                                           <tr>
-                                            <td colspan="2" class="f_arial f_size12" height="60"><input name="button" id="button" value="&nbsp; &nbsp; Xem k?t qu? &nbsp; &nbsp;" type="submit">
+                                            <td colspan="2" class="f_arial f_size12" height="60"><input name="button" id="button" value="&nbsp; &nbsp; Xem k·∫øt qu·∫£ &nbsp; &nbsp;" type="submit">
                                               <br>
                                               <em>D? li?u du?c xem trong kho?ng <span style="color: red; font-weight: bold;">30</span> ng‡y.</em>
                                               <em>D? li?u du?c tra c?u t? 01/01/2005 d?n nay.<br><strong>Ch? cÛ <span style="color: red; font-weight: bold;">VIP</span> m?i xem du?c th?ng kÍ trong <span style="color: red; font-weight: bold;">100</span> ng‡y</strong></em>
@@ -164,11 +164,11 @@ dÛ b?n cÛ th? d? do·n c?p s? n‡o s?p ra v‡ ra trong kho?ng n‡o?.<br>
 							<tr>
 								<td bgcolor="#ffffff">          
 									<div id="full_screen" class="smallscreen">
-                                    	<div style="background-image: url(&quot;images/bg.gif&quot;);"><div onclick="to_full()" id="click_to_full" align="left">Xem to‡n m‡n hÏnh</div></div>
+                                    	<div style="background-image: url(&quot;images/bg.gif&quot;);"><div onclick="to_full()" id="click_to_full" align="left">Xem to√†n m√†n h√¨nh</div></div>
 									    <table style="border-collapse: collapse;" border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0" width="3130">
 	<tbody><tr>
 
-                                                            <td class="pt_header" align="center" bgcolor="#d6d6d6" width="130">Ng‡y\C?p s?</td>
+                                                            <td class="pt_header" align="center" bgcolor="#d6d6d6" width="130">Ng√†y\C·∫∑p s·ªë</td>
 <td class="pt_header" align="center" bgcolor="#d6d6d6" width="30"><b>00</b></td>
 <td class="pt_header" align="center" bgcolor="#d6d6d6" width="30"><b>01</b></td>
 <td class="pt_header" align="center" bgcolor="#d6d6d6" width="30"><b>02</b></td>
@@ -275,7 +275,7 @@ dÛ b?n cÛ th? d? do·n c?p s? n‡o s?p ra v‡ ra trong kho?ng n‡o?.<br>
 <?php           
 $arrTSLV = array();           
                 
-                foreach ($arrKQ as $i){
+                foreach ($arrKQ as $i) {
                     $temp = $i['g0'].'-'.$i['g1'].'-'.$i['g2'].'-'.$i['g3'].'-'.$i['g4']
                     .'-'.$i['g5'].'-'.$i['g6'].'-'.$i['g7'].'-'.$i['g8'];
                     
@@ -288,10 +288,7 @@ $arrTSLV = array();
                     $arrCS = array('00','01','02','03','04','05','06','07','08','09');
                     for ($j=10;$j<=99;$j++)                    
                         $arrCS[] = $j;
-                        
-                                   
-
-                    foreach ($arrCS as $cs){                        
+                    foreach ($arrCS as $cs) {                 
                         $dong = "<td>";
                         $dem = substr_count($str1, $cs);
                         if($dem>0)
@@ -301,7 +298,7 @@ $arrTSLV = array();
                         $kq .= $dong;
                         //echo $dong;
                         $arrTSLV[$cs] += $dem;
-                    }                                                  
+                    }                                         
                     $kq .= "</tr>";
                     echo $kq;
                     
@@ -312,12 +309,9 @@ $arrTSLV = array();
          ?>
 </tr>
 
-<tr>
-
-                                                                
-	<tr bgcolor="#d6d6d6">
-
-                                                            <td class="pt_header" align="center" width="130">C?p s?</td>
+<tr>                                                                
+<tr bgcolor="#d6d6d6">
+<td class="pt_header" align="center" width="130">C·∫Øp s·ªë</td>
 <td class="pt_header" align="center" width="30">00</td>
 <td class="pt_header" align="center" width="30">01</td>
 <td class="pt_header" align="center" width="30">02</td>
@@ -421,7 +415,7 @@ $arrTSLV = array();
 </tr>
 	<tr bgcolor="#f5f5f5">
 
-                                                            <td class="pt_header" align="center" width="130">T?ng s? l?n v?</td>
+                                                            <td class="pt_header" align="center" width="130">T·ªïng s·ªë l·∫ßn v·ªÅ</td>
                                                             <?php                  
                 
                 foreach ($arrTSLV as $i){

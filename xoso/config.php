@@ -4,7 +4,7 @@
 define('DB_HOST','localhost');
 define('DB_USER', 'root');
 define('DB_PASSWORD','123456');
-define('DB_NAME','kqxoso');
+define('DB_NAME','db_xoso');
 
 // define the query types
 define('SQL_NONE', 1);
