@@ -18,6 +18,7 @@ class SQL {
 
         $dbc = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die('Could not connect to MySQL: ' . mysql_error());
         mysql_select_db($db) OR die("Could not select the database: $db, " . mysql_error());
+        mysql_query("SET NAMES 'utf8'");
     }
     
     /**
