@@ -289,11 +289,11 @@ $arrTSLV = array();
                     for ($j=10;$j<=99;$j++)                    
                         $arrCS[] = $j;
                     foreach ($arrCS as $cs) {                 
-                        $dong = "<td>";
+                        $dong = "<td><a href='chi-tiet-ket-qua-xo-so.php?ngay={$i['ngay']}&ma_tinh={$type}'>";
                         $dem = substr_count($str1, $cs);
                         if($dem>0)
                             $dong .= $dem;
-                        $dong .= "</td>";
+                        $dong .= "</a></td>";
                         
                         $kq .= $dong;
                         //echo $dong;

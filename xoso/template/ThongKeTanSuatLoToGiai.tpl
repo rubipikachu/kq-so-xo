@@ -15,7 +15,25 @@
     <script type="text/javascript" src="http://www.google-analytics.com/ga.js"></script>
     <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="js/jsDatePick.jquery.min.1.2.js"></script>
-    <script type="text/javascript" src="js/popup.js"></script>		
+    <script type="text/javascript" src="js/popup.js"></script>
+    <script type="text/javascript">
+    window.onload = function(){
+        new JsDatePick({
+            useMode:2,
+            target:"top_day",
+            dateFormat:"%d/%m/%Y"
+        });
+        new JsDatePick({
+            useMode:2,
+            target:"bottom_day",
+            dateFormat:"%d/%m/%Y"
+        });
+    };
+    function openpopup(url){
+        newwindow=window.open(url,'Chi tiet ket qua','height=700px,width=450px,resize=0,scrolling=auto');
+    	if (window.focus) {newwindow.focus()}
+    }
+    </script>		
 </head>
 <body id="nav_mienbac">
 <div align="center" style="width:1260px;">	
@@ -106,31 +124,7 @@ $vars['top_day']; ?>" style="width: 100px;" type="text"><div style="z-index: 3; 
                 </td>
                                          </tr>
                                          <tr>
-                <td class="f_arial f_size12" height="50">
-              Chọn tỉnh:
-                  <select name="slcTinh" id="slcTinh">
-                  <?php
-$db = new SQL();
-$query = "SELECT * FROM vnp_tinh";
-
-$db->query($query);
-$sizeListTinh = $db->numRows;
-$listTinh = $db->record;
-
-$db->close();
-$i = 0;
-while ($i < $sizeListTinh) {
-    $name = $listTinh[$i]['name'];
-    $value = $listTinh[$i]['type'];
-    $isSelected = "";
-    if ($type == $value) {
-        $isSelected = "selected";
-    }
-    echo "<option value=$value $isSelected>" . $name . "</option>";
-    $i++;
-}
-?>
-                  </select>						 
+                <td class="f_arial f_size12" height="50">              					 
                   
                 </td>
                 <td>                              
@@ -300,52 +294,63 @@ while ($i < $sizeListTinh) {
 </tr>
 
 <?php
-$arrTSLV = array();
-
-foreach ($arrKQ as $i) {
-
-    //echo "<tr><td colspan=101> {$str1} </td></tr>";
-    $kq = "<tr><td> {$i['ngay']}</td>";
-
-    //Mang cap so tu 00->99
-    $arrCS = array('00', '01', '02', '03', '04', '05', '06', '07', '08', '09');
-    for ($j = 10; $j <= 99; $j++) {
-        $arrCS[] = $j;
-    }
-
-    foreach ($arrCS as $cs) {
-        $dong = "<td>";
-        for ($j = 0; $j <= 8; $j++) {
-            $g = 'g' . $j;
-            $temp = $i[$g];
-
-            //echo "test= ".$i['g{$j}'];
-            //echo "temp =".$temp;
-
-            //xau chua 2 chu so cuoi cua ket qua xo so theo 1 ngay
-            $arr1 = getArray($temp);
-            $n = count($arr1);
-
-            for ($k = 0; $k < $n; $k++) {
-                if ($arr1[$k] == $cs) {
-                    $m = $k + 1;
-                    $dong .= "G{$j}{$m}";
-                    //break;
-                }
-                //echo "Arry1[k]= ".$arr1[$k];
-            }
+    $arrTSLV = array();
+        
+    //Duyet theo tung ngay giam dan
+    foreach ($arrKQ as $i) {
+        
+        
+        $kq = "<tr><td> {$i['ngay']}</td>";
+    
+        //Mang cap so tu 00->99
+        $arrCS = array('00', '01', '02', '03', '04', '05', '06', '07', '08', '09');
+        for ($j = 10; $j <= 99; $j++) {
+            $arrCS[] = $j;
         }
-
-        $dong .= "</td>";
-
-        $kq .= $dong;
-        //echo $dong;
-        $arrTSLV[$cs] += $dem;
+        
+        //Duyet cap so tu 00->99
+        foreach($arrCS as $cs) {
+            $dong = "<td><a href='chi-tiet-ket-qua-xo-so.php?ngay={$i['ngay']}&ma_tinh={$type}'>";
+            $dem = 0;
+            //Duyet tung giai
+            for ($j = 0; $j <= 8; $j++) {
+                $g = 'g' . $j;
+                $temp = $i[$g];
+    
+                //echo "test= ".$i['g{$j}'];
+                //echo "temp =".$temp;
+    
+                //xau chua 2 chu so cuoi cua ket qua xo so cua 1 giai
+                $arr1 = getArray($temp);
+                $n = count($arr1);
+                
+                for ($k = 0; $k < $n; $k++) {
+                    if ($arr1[$k] == $cs) {
+                        $dem++;
+                        $m = $k + 1;
+                        if ($dem==1){
+                            if ($j==0 && $m==1){ 
+                                $dong .= "G00";
+                            }else{
+                                $dong .= "G{$j}{$m}";
+                            }
+                        }                     
+                        
+                    }
+                    
+                }
+            }
+    
+            $dong .= "</a></td>";
+    
+            $kq .= $dong;
+            
+            $arrTSLV[$cs] += $dem;
+        }
+        $kq .= "</tr>";
+        echo $kq;
+    
     }
-    $kq .= "</tr>";
-    echo $kq;
-
-}
 
 ?>
 
@@ -462,109 +467,6 @@ foreach ($arrKQ as $i) {
 ?>
 </tr>
 
-<tr bgcolor='#d6d6d6'>
-<td width='130' align='center' class='pt_header'>Tổng số lần về</td>
-<td width='30' align='center' class='pt_header'>11</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>10</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>13</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>13</td>
-<td width='30' align='center' class='pt_header'>10</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>10</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>5</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>13</td>
-<td width='30' align='center' class='pt_header'>11</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>5</td>
-<td width='30' align='center' class='pt_header'>3</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>4</td>
-<td width='30' align='center' class='pt_header'>11</td>
-<td width='30' align='center' class='pt_header'>14</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>5</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>15</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>15</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>5</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>5</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>4</td>
-<td width='30' align='center' class='pt_header'>5</td>
-<td width='30' align='center' class='pt_header'>4</td>
-<td width='30' align='center' class='pt_header'>12</td>
-<td width='30' align='center' class='pt_header'>8</td>
-<td width='30' align='center' class='pt_header'>10</td>
-<td width='30' align='center' class='pt_header'>5</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>11</td>
-<td width='30' align='center' class='pt_header'>10</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>16</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>10</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>14</td>
-<td width='30' align='center' class='pt_header'>12</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>5</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>17</td>
-<td width='30' align='center' class='pt_header'>11</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>12</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>10</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>9</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>3</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>5</td>
-<td width='30' align='center' class='pt_header'>13</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>7</td>
-<td width='30' align='center' class='pt_header'>6</td>
-<td width='30' align='center' class='pt_header'>5</td>
-<td width='30' align='center' class='pt_header'>2</td>
-<td width='30' align='center' class='pt_header'>4</td>
-</tr>
 </table>
 	
                                     </div>
