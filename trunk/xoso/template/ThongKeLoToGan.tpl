@@ -90,14 +90,10 @@ $vars['top_day']; ?>" style="width: 100px;" type="text"><div style="z-index: 3; 
               Chọn tỉnh:
                   <select name="slcTinh" id="slcTinh">
                   <?php
-$db = new SQL();
-$query = "SELECT * FROM " . TINH_TABLE;
 
-$db->query($query);
-$sizeListTinh = $db->numRows;
-$listTinh = $db->record;
 
-$db->close();
+
+
 $i = 0;
 while ($i < $sizeListTinh) {
     $name = $listTinh[$i]['name'];
@@ -185,43 +181,59 @@ foreach ($arrKQ1 as $i) {
         <table style="border-collapse: collapse;" width="720" border="1" cellpadding="0" cellspacing="0">
     <tbody>
     <?php
-$arrCS = array('00', '01', '02', '03', '04', '05', '06', '07', '08', '09');
-for ($j = 10; $j <= 99; $j++)
-    $arrCS[] = $j;
-
-for ($k1 = 0; $k1 <= 4; $k1++) {
-    $dong1 = "<tr bgcolor='#f5f5f5'>";
-    $dong2 = "<tr bgcolor='#cccccc'>";
-    $dong1 .= "<td width='130' align='center'><b>cặp số</b></td>";
-    $dong2 .= "<td width='130' align='center'><b>Số ngày gan cực đại</b></td>";
-    $dong3 = "";
-    if ($k1 < 4)
-        $dong3 = "<tr bgcolor='#ffffff'><td colspan='21'>&nbsp;</td></tr>";
-    //echo "k1 = $k1 <br/>";
-    for ($k2 = 0; $k2 <= 19; $k2++) {
-        $k3 = 20 * $k1 + $k2;
-        //echo "  k2 = $k2 - ";
-        //echo "      k3 = $k3 <br/>";
-        //echo "{arrCS[$k3]}= ".$arrCS[$k3];
-        $dong1 .= "<td width='30' align='center'><b>" . $arrCS[$k3] . "</b></td>";
-        foreach ($arrKQ3 as $i) {
-            $temp = $i['g0'] . '-' . $i['g1'] . '-' . $i['g2'] . '-' . $i['g3'] . '-' . $i['g4'] .
-                '-' . $i['g5'] . '-' . $i['g6'] . '-' . $i['g7'] . '-' . $i['g8'];
-
-            //xau chua 2 chu so cuoi cua ket qua xo so theo 1 ngay
-            $str1 = getStr($temp);
-            if (substr_count($str1, $arrCS[$k3]) > 0) {
-                $kcganMax = datediff('d', $i['ngay'], $to_date);
-                $dong2 .= "<td width='30' align='center'><b>" . $kcganMax . "</b></td>";
-                break;
+    $arrCS = array('00', '01', '02', '03', '04', '05', '06', '07', '08', '09');
+    for ($j = 10; $j <= 99; $j++)
+        $arrCS[] = $j;
+    
+    for ($k1 = 0; $k1 <= 4; $k1++) {
+        $dong1 = "<tr bgcolor='#f5f5f5'>";
+        $dong2 = "<tr bgcolor='#cccccc'>";
+        $dong1 .= "<td width='130' align='center'><b>cặp số</b></td>";
+        $dong2 .= "<td width='130' align='center'><b>Số ngày gan cực đại</b></td>";
+        $dong3 = "";
+        if ($k1 < 4)
+            $dong3 = "<tr bgcolor='#ffffff'><td colspan='21'>&nbsp;</td></tr>";
+        //echo "k1 = $k1 <br/>";
+               
+        for ($k2 = 0; $k2 <= 19; $k2++) {
+            $k3 = 20 * $k1 + $k2;
+            //echo "  k2 = $k2 - ";
+            //echo "      k3 = $k3 <br/>";
+            //echo "{arrCS[$k3]}= ".$arrCS[$k3];
+            $dong1 .= "<td width='30' align='center'><b>" . $arrCS[$k3] . "</b></td>";
+            $kcganMax = 0; 
+            $count = 0;
+            $ngay2 = $from_date;
+            foreach ($arrKQ3 as $i) {
+                $temp = $i['g0'] . '-' . $i['g1'] . '-' . $i['g2'] . '-' . $i['g3'] . '-' . $i['g4'] .
+                    '-' . $i['g5'] . '-' . $i['g6'] . '-' . $i['g7'] . '-' . $i['g8'];
+    
+                //xau chua 2 chu so cuoi cua ket qua xo so theo 1 ngay
+                $str1 = getStr($temp);
+                
+                //echo $str1." - ".$i['ngay']."</br>";
+                if (substr_count($str1, $arrCS[$k3]) > 0) {                    
+                    if ($count + 1 > $kcganMax){
+                        $kcganMax = $count + 1;
+                        $ngay1 = $ngay2;  
+                        $ngay2 = $i['ngay'];                       
+                    }
+                    //echo "Cap so: ".$arrCS[$k3]." - ".$i['ngay']."</br>";
+                    $count = 0;                                                           
+                }
+                else
+                {
+                    $count++;
+                }
             }
+            echo "Cap so: ".$arrCS[$k3]." - ".$ngay1." - ".$ngay2."</br>";
+            $dong2 .= "<td width='30' align='center'><b>" . $kcganMax . "</b></td>";
         }
+        echo $dong1;
+        echo $dong2;
+        if ($dong3 != "")
+            echo $dong3;
     }
-    echo $dong1;
-    echo $dong2;
-    if ($dong3 != "")
-        echo $dong3;
-}
 ?>
 
 </tbody></table>

@@ -1,7 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<link rel="shortcut icon" href="http://www.xosof.vn/favicon.ico">
-<title>Bảng đặc biệt tuần</title>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="http://www.xosof.vn/favicon.ico">
+    <title>Bảng đặc biệt tuần</title>
     <link type="text/css" rel="stylesheet" href="style/main.css" />
     <link type="text/css" rel="stylesheet" href="style/jsDatePick_ltr.min.css" />
     <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
@@ -55,15 +57,7 @@
                 <td class="f_arial f_size12" height="50">
               Chọn tỉnh:
                   <select name="slcTinh" id="slcTinh">
-                  <?php
-                  		$db = new SQL();    
-                        $query = "SELECT * FROM vnp_tinh";
-                    
-                        $db->query($query);
-                        $sizeListTinh = $db->numRows;
-                        $listTinh = $db->record;    
-                        
-                        $db->close();
+                  <?php                  		
                         $i=0;
                         while ($i<$sizeListTinh)
                         {
@@ -92,13 +86,13 @@
 													  <input name="type_view" value="0" checked="checked" type="radio">
 													  Thông thường</label>							   
 													<label>
-													  <input name="type_view" value="1" type="radio">
+													  <input name="type_view" value="1" <?php if($type_view==1) echo 'checked="checked"'; ?> type="radio">
 													  2 số cuối</label>							    
 													<label>
-													  <input name="type_view" value="2" type="radio">
+													  <input name="type_view" value="2" <?php if($type_view==2) echo 'checked="checked"'; ?> type="radio">
 													  Đầu</label>							    
 													<label>
-													  <input name="type_view" value="3" type="radio">
+													  <input name="type_view" value="3" <?php if($type_view==3) echo 'checked="checked"'; ?> type="radio">
 													  Đuôi<label>
 													<br>						
 											</div>                         
@@ -142,8 +136,23 @@
                                         <?php                                                   
                          
                 $dem = 0;
+                $sizeArrKQ = 0;
                 foreach ($arrKQ as $i){
-                    $giai = $i['g0'];
+                    $sizeArrKQ++;
+                    $giai = $i['g0']."  ";
+                    //echo '$type_view2='.$type_view;
+                    switch ($type_view){
+                        case 1:
+                            $giai = substr($i['g0'],strlen($i['g0'])-2)."  ";
+                            break;
+                        case 2:
+                            $giai = substr($i['g0'],strlen($i['g0'])-2,1)."  ";
+                            break;
+                        case 3:
+                            $giai = substr($i['g0'],strlen($i['g0'])-1)."  ";
+                            break;
+                    }
+                    
                     $dem++;                    
                     $ngay = $i['ngay'];
                     $thu = TimThu($ngay);
@@ -177,7 +186,7 @@
                        $dong .= "<td align='center'><b>{$giai}</b></td>"; 
                        $dongNgay .= "<td align='center' bgcolor='#dddddd'><b><font size='1'>".formatDate($ngay)."</font></b></td>";
                         
-                        if($thu == 8){
+                        if($thu == 8 || $sizeArrKQ == count($arrKQ)){
                             $dong .= "</tr>";
                             $dongNgay .= "</tr>";
                             echo $dong;
@@ -187,7 +196,8 @@
                 }        
          ?>
 								
-									</tbody></table>          
+									</tbody>
+                                </table> 
 																			
 								</td>
 							  </tr>
