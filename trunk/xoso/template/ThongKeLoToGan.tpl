@@ -38,6 +38,10 @@
             dateFormat:"%d/%m/%Y"
         });
     };
+    function openpopup(url){
+        newwindow=window.open(url,'Chi tiet ket qua','height=700px,width=450px,resize=0,scrolling=auto');
+    	if (window.focus) {newwindow.focus()}
+    }
     </script>
 
     <div id="result_detail" style="display: none;"></div>
@@ -168,6 +172,7 @@ foreach ($arrKQ1 as $i) {
                     formatDate($i['ngay']) . "</a> - đến " . formatDate($to_date) .
                     " vẫn chưa ra lại là: <b>" . datediff('d', $i['ngay'], $to_date) .
                     " </b> ngày<br/>";
+                
             }
         }
     }

@@ -7,20 +7,10 @@ define('TINH_TABLE', 'vnp_tinh');
 //Ham tinh dac biet tuan
 function displayTanSuatLoToGiai($vars)
 {
-    //Lay gia tri tren form
-    //Bien do gan
-    if (isset($vars['number'])) {
-        $BienDoGan = $vars['number'];
-    } else {
-        $vars['number'] = 10;
-    }
-
+    //Lay gia tri tren form    
     //ma tinh
-    if (isset($vars['slcTinh'])) {
-        $type = $vars['slcTinh'];
-    } else {
-        $type = "mb";
-    }
+    $type = "mb";
+    
     //Tu ngay
     if (isset($vars['bottom_day'])) {
         $array_date = explode('/', $vars['bottom_day']);
@@ -300,7 +290,7 @@ function getArrKQ($type, $from_date, $to_date)
               AND '$from_date' <= ngay AND ngay <= '$to_date'
               ORDER BY ngay desc";
 
-    //echo "<br/> query=".$query;
+    echo "<br/> query=".$query;
     $db->query($query);
     $arr_count = $db->numRows;
     $arr_temp = $db->record;
@@ -384,7 +374,7 @@ function getKQChiTiet($ngay, $type)
     		  AND ngay = '$ngay'";
 
     //echo "<br/> query KQCT= ".$query;
-    $db->query($query);
+    $db->query($query,SQL_INIT);
     $arr_count = $db->numRows;
     $arr_temp = $db->record;
 

@@ -8,14 +8,14 @@ require_once('includes/functions.php');
  */
 //echo $_REQUEST['ngay'];
 //echo $_REQUEST['ma_tinh'];
-//echo $_GET['ngay'];
+    
     $ngay = $_GET['ngay'];
     $type = $_GET['ma_tinh'];
-        
-    $arrKQ = getKQChiTiet($ngay,$type);
-    $temp = $arrKQ['g0'].'-'.$arrKQ['g1'].'-'.$arrKQ['g2'].'-'.$arrKQ['g3'].'-'.$arrKQ['g4']
-                    .'-'.$arrKQ['g5'].'-'.$arrKQ['g6'].'-'.$arrKQ['g7'].'-'.$arrKQ['g8'];
-    //echo "<br/>Ngay <b>" .$arrKQ['ngay']. "</b>: ".getStr($temp);
+    //echo $ngay.'-'.$type;    
+    $arrKQCT = getKQChiTiet($ngay,$type);
+    $tempCT = $arrKQCT['g0'].'-'.$arrKQCT['g1'].'-'.$arrKQCT['g2'].'-'.$arrKQCT['g3'].'-'.$arrKQCT['g4']
+                    .'-'.$arrKQCT['g5'].'-'.$arrKQCT['g6'].'-'.$arrKQCT['g7'].'-'.$arrKQCT['g8'];
+    //echo "<br/>Ngay <b>" .$arrKQCT['ngay']. "</b>: ".getStr($tempCT);
 
 ?>
 <!-- Bat dau noi dung trong trang -->
@@ -34,7 +34,7 @@ require_once('includes/functions.php');
 		<tr>
 			<td colspan="3" class="f_arial f_size14">				  		
 				<div  style="line-height:22px;">
-								<strong>2 s&#7889; cu&#7889;i: </strong><?=getStr($temp)?>					                
+								<strong>2 s&#7889; cu&#7889;i: </strong><?=getStr($tempCT)?>					                
                 </div>
 			</td>
 		</tr>
@@ -46,7 +46,7 @@ require_once('includes/functions.php');
 							<div class="c_gray f_bold f_arial f_size12 pd5">Gi&#7843;i &#273;&#7863;c bi&#7879;t</div>
 						</td>
 						<td width="75%" bgcolor="#ffffff">
-							<div class="column one"><div class="section"><span style="color:#FF0000"><?=$arrKQ['g0']?></span></div></div>
+							<div class="column one"><div class="section"><span style="color:#FF0000"><?=$arrKQCT['g0']?></span></div></div>
 						</td>
 					</tr>
 					<tr>
@@ -54,7 +54,7 @@ require_once('includes/functions.php');
 							<div class="c_gray f_bold f_arial f_size12 pd5">Gi&#7843;i nh&#7845;t</div>
 						</td>
 						<td width="75%" bgcolor="#ffffff">
-							<div class="column one"><div class="section"><?=$arrKQ['g1']?></div></div>
+							<div class="column one"><div class="section"><?=$arrKQCT['g1']?></div></div>
 						</td>
 					</tr>
 					<tr>
@@ -63,7 +63,7 @@ require_once('includes/functions.php');
 						</td>
 						<td width="75%" bgcolor="#ffffff">
 							<div style="padding-left:60px; padding-right:60px;">
-	                            <div class="column two"><div class="section"><?=$arrKQ['g2']?></div></div>
+	                            <div class="column two"><div class="section"><?=$arrKQCT['g2']?></div></div>
                             </div>
 						</td>
 					</tr>
@@ -73,7 +73,7 @@ require_once('includes/functions.php');
                         </td>
 						<td width="75%" bgcolor="#ffffff">							
 								<div class="column three">
-									<div class="section"><?=$arrKQ['g3']?></div>
+									<div class="section"><?=$arrKQCT['g3']?></div>
                                 </div>
 						</td>
 					</tr>
@@ -83,7 +83,7 @@ require_once('includes/functions.php');
                         </td>
 						<td width="75%" bgcolor="#ffffff">							
                         	<div style="padding-left:60px; padding-right:60px;">
-                            	<div class="column two"><div class="section"><?=$arrKQ['g4']?></div></div>
+                            	<div class="column two"><div class="section"><?=$arrKQCT['g4']?></div></div>
                             </div>  
 						</td>
 					</tr>
@@ -93,7 +93,7 @@ require_once('includes/functions.php');
                         </td>
 						<td width="75%" bgcolor="#ffffff">
 							<div class="column three">
-								<div class="section"><?=$arrKQ['g5']?></div>
+								<div class="section"><?=$arrKQCT['g5']?></div>
 							</div>
 						</td>
 					</tr>
@@ -103,7 +103,7 @@ require_once('includes/functions.php');
 						</td>
 						<td width="75%" bgcolor="#ffffff">
 							<div class="column three">
-								<div class="section"><?=$arrKQ['g6']?></div>		</div>
+								<div class="section"><?=$arrKQCT['g6']?></div>		</div>
 						</td>
 					</tr>
 					<tr>
@@ -112,7 +112,7 @@ require_once('includes/functions.php');
                         </td>
 						<td width="75%" bgcolor="#ffffff">							
 	                            <div class="column four">
-									<div class="section"><?=$arrKQ['g7']?></div>
+									<div class="section"><?=$arrKQCT['g7']?></div>
 								</div>
 						</td>
 					</tr>			
