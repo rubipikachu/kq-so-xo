@@ -4,6 +4,19 @@
 define('XOSO_TABLE', 'vnp_xoso');
 define('TINH_TABLE', 'vnp_tinh');
 
+//Ham tra ve danh sach cac tinh
+function getListTinh()
+{
+    $db = new SQL();
+    $query = "SELECT * FROM " . TINH_TABLE;
+    
+    $db->query($query);
+    $sizeListTinh = $db->numRows;
+    $listTinh = $db->record;
+    
+    $db->close();
+    return $listTinh;
+}
 //Ham tinh dac biet tuan
 function displayTanSuatLoToGiai($vars)
 {
@@ -37,13 +50,7 @@ function displayTanSuatLoToGiai($vars)
 //Ham tinh dac biet tuan
 function displayBangDacBietTuan($vars)
 {
-    //Lay gia tri tren form
-    //Bien do gan
-    if (isset($vars['number'])) {
-        $BienDoGan = $vars['number'];
-    } else {
-        $vars['number'] = 10;
-    }
+    //Lay gia tri tren form 
 
     //ma tinh
     if (isset($vars['slcTinh'])) {
@@ -67,38 +74,47 @@ function displayBangDacBietTuan($vars)
         $vars['top_day'] = "30/09/2010";
         $to_date = '2010-09-30';
     }
-
+    
+    //Loai hien thi
+    $type_view = $vars['type_view'];
+    
     //Lay ket qua tu to_date den $to_date
     $arrKQ = getArrKQASC($type, $from_date, $to_date);
+    $listTinh = getListTinh();
+    $sizeListTinh = count($listTinh);
 
     require_once ('template/BangDacBietTuan.tpl');
 }
+
+
 //Ham xac dinh thu tu ngay/thang/nam
 function TimThu($ngay)
 {
-    $khoang_cach_ngay = datediff('d', '1/1/1', $ngay);
-    $temp = $khoang_cach_ngay % 7;
-    switch ($temp) {
-        case 0:
-            $thu = 3; //"Th? 2"
+    //$khoang_cach_ngay = datediff('d', '1/1/1', $ngay);
+    //$temp = $khoang_cach_ngay % 7;
+    $temp = date('N', strtotime($ngay));
+    switch ($temp) {        
+        case '1':
+            $thu = 2; //"Th? 2"
             break;
-        case 1:
-            $thu = 4; //"Th? 3"
+        case '2':
+            $thu = 3; //"Th? 3"
             break;
-        case 2:
-            $thu = 5; //"Th? 4"
+        case '3':
+            $thu = 4; //"Th? 4"
             break;
-        case 3:
-            $thu = 6; //"Th? 5"
+        case '4':
+            $thu = 5; //"Th? 5"
             break;
-        case 4:
-            $thu = 7; //"Th? 6"
+        case '5':
+            $thu = 6; //"Th? 6"
             break;
-        case 5:
-            $thu = 8; //"Th? 7"
+        case '6':
+            $thu = 7; //"Th? 7"
             break;
         default:
-            $thu = 2; //"Ch? nh?t"
+            $thu = 8; //"Ch? nh?t"
+            break;
     }
     return $thu;
 }
@@ -267,7 +283,8 @@ function getArrKQASC($type, $from_date, $to_date)
     $query = "SELECT *
               FROM " . XOSO_TABLE . "
               WHERE type = '$type'
-              AND '$from_date' <= ngay AND ngay <= '$to_date'";
+              AND '$from_date' <= ngay AND ngay <= '$to_date'
+              ORDER BY ngay";
 
     //echo "<br/> query=".$query;
     $db->query($query);
@@ -315,7 +332,26 @@ function subtractDaysFromday($date, $number_of_days)
 
     return date('Y-m-d', $newdate);
 }
+function getArr($type, $to_date)
+{
 
+    $db = new SQL();
+    //Viet truy van
+    $query = "SELECT *
+              FROM " . XOSO_TABLE . "
+              WHERE type = '$type'
+              AND ngay <= '$to_date'
+              ORDER BY ngay";
+
+    //echo "<br/> query=".$query;
+    $db->query($query);
+    $arr_count = $db->numRows;
+    $arr_temp = $db->record;
+
+    $db->close();
+
+    return $arr_temp;
+}
 //Ham hien thi ket qua logo gan
 function displayKQLoToGan($vars)
 {
@@ -351,13 +387,20 @@ function displayKQLoToGan($vars)
     }
 
     $date_temp = subtractDaysFromday($to_date, $BienDoGan);
+    $date_temp2 = subtractDaysFromday($to_date, $BienDoGan-1);
+    
 
     //Lay ket qua tu to_date den $date_temp
     $arrKQ1 = getArrKQ($type, $from_date, $date_temp);
 
-    $arrKQ2 = getArrKQ($type, $date_temp, $to_date);
+    $arrKQ2 = getArrKQ($type, $date_temp2, $to_date);
+    
+    //$arrKQ3 = getArr($type, $from_date);
 
-    $arrKQ3 = getArrKQASC($type, $from_date, $to_date);
+    $arrKQ3 = getArrKQASC($type, $from_date,$date_temp);
+    
+    $listTinh = getListTinh();
+    $sizeListTinh = count($listTinh);
 
     require_once ('template/ThongKeLoToGan.tpl');
 }
