@@ -47,6 +47,43 @@ function displayTanSuatLoToGiai($vars)
     require_once ('template/ThongKeTanSuatLoToGiai.tpl');
 }
 
+//Ham tinh dac biet tuan theo tong
+function displayBangDacBietTuanTheoTong($vars)
+{
+    //Lay gia tri tren form 
+
+    //ma tinh
+    if (isset($vars['slcTinh'])) {
+        $type = $vars['slcTinh'];
+    } else {
+        $type = "mb";
+    }
+    //Tu ngay
+    if (isset($vars['bottom_day'])) {
+        $array_date = explode('/', $vars['bottom_day']);
+        $from_date = $array_date[2] . '-' . $array_date[1] . '-' . $array_date[0];
+    } else {
+        $vars['bottom_day'] = "1/09/2010";
+        $from_date = '2010-09-01';
+    }
+    //Den ngay
+    if (isset($vars['top_day'])) {
+        $array_date = explode('/', $vars['top_day']);
+        $to_date = $array_date[2] . '-' . $array_date[1] . '-' . $array_date[0];
+    } else {
+        $vars['top_day'] = "30/09/2010";
+        $to_date = '2010-09-30';
+    }
+    
+        
+    //Lay ket qua tu to_date den $to_date
+    $arrKQ = getArrKQASC($type, $from_date, $to_date);
+    $listTinh = getListTinh();
+    $sizeListTinh = count($listTinh);
+
+    require_once ('template/BangDacBietTuanTheoTong.tpl');
+}
+
 //Ham tinh dac biet tuan
 function displayBangDacBietTuan($vars)
 {
